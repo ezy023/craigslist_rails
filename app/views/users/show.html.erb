@@ -1,0 +1,18 @@
+<h1>how we get shit done</h1>
+
+<h2> Create A New Post </h2>
+
+<%= form_for @post do |f| %>
+<%= f.text_field :title, :placeholder => "Title" %>
+<%= f.text_area :content, :content =>"content" %>
+<%= f.select :category, options_for_select([['Cars','cars'],['Bikes','bikes']]) %>
+<%= f.submit %>
+<% end %>
+
+
+<% @user.posts.each do |post| %>
+  <ul>
+    <li><%= link_to post.title, post_path(post) %></li>
+    <li><%= post.content %></li>
+  </ul>
+<% end %>
